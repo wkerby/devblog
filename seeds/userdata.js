@@ -12,7 +12,7 @@ const users = [
     {
         id:2,
         username:"TheincredibleJuan",
-        content: "Battenkill2"
+        password: "Battenkill2"
     },
 ]
 
