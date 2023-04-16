@@ -7,8 +7,9 @@ const path = require("path");
 router.get("/", async (req, res) => {
     console.log(`Registering ${req.method} route`);
     try {
-        const allPosts = await Post.findAll();//query back all posts that have been created
+        const allPosts = await Post.findAll({include:[{model:User}]});//query back all posts that have been created
         const posts = allPosts.map((post) => post.get({plain:true})); //serialize the post data
+        console.log(posts);
         res.status(200).render("allposts", {posts});
     }
 
