@@ -2,6 +2,7 @@ const express = require('express'); //require in the express package
 const sequelize = require("./config/connection"); //require sequelize
 const exphbs = require('express-handlebars'); //require package for using handlebars
 const hbs = exphbs.create({});
+const routes = require("./controllers");
 const path = require('path');
 const app = express(); //create app constant for server
 
@@ -18,6 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 app.use(express.static(path.join(__dirname, 'public'))); //tell server to render any static files in the public directory
+
+app.use(routes);
 
 //create connection to sequelize database
 sequelize.sync({force:false}).then(() => {

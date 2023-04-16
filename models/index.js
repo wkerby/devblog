@@ -28,7 +28,7 @@ Post.hasMany(Comment, {
 
 User.hasMany(Post, {
     foreignKey: "user_id",
-    onDelete: CASCADE
+    onDelete: "CASCADE"
 })
 
 module.exports = {Post,User,Comment};
