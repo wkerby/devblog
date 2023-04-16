@@ -2,7 +2,7 @@ const router = require("express").Router();
 const {Post, User, Comment} = require("../models");
 const path = require("path");
 
-///----------render all posts on the home page
+///----------render all posts on the home page----------
 
 router.get("/", async (req, res) => {
     console.log(`Registering ${req.method} route`);
@@ -19,6 +19,7 @@ router.get("/", async (req, res) => {
 
 });
 
+///----------render a single post and any comments associated with post----------
 router.get("/post/:id", async (req, res) => {
     console.log(`${req.method} request logged.`)
     specPostId = req.params.id;
@@ -44,6 +45,18 @@ router.get("/post/:id", async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
-}); 
+});
+
+router.get("/login", async (req, res) => {
+    console.log(`${req.method} method registered.`)
+    try {
+        res.status(200).render("login")
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+
+    }
+})
 
 module.exports = router;

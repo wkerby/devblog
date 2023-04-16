@@ -5,3 +5,26 @@
 .nav li a {
     color: red;
 }
+
+/*styling for the login.handlebars view*/
+
+.login-form-card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:column;
+    border:1px solid gray;
+    border-radius: 10px;
+    width: 50%;
+}
+
+.username-card, .password-card, .login-button-card {
+    margin-top: 10px;
+    margin-bottom:10px;
+    margin-left: 5px;
+}
+
+.elements-card {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
