@@ -22,6 +22,9 @@ Post.init(
         date: {
             type: DataTypes.DATE,
         },
+        title: {
+            type: DataTypes.STRING
+        },
         content: {
             type: DataTypes.STRING,
         },

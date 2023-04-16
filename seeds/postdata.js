@@ -3,6 +3,7 @@ const posts = [
     {
         id:1,
         user_id:1,
+        title: "Wazzup",
         content: "This devblog is really cool!"
 
 
@@ -11,6 +12,7 @@ const posts = [
     {
         id:2,
         user_id:2,
+        title: "Random title",
         content: "I actually hate this devblog."
     },
 ]
