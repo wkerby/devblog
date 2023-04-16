@@ -1,0 +1,51 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text">{{date}}</p>
+        <p class="card-text">{{content}}</p>
+        <a href="#" class="btn btn-primary">Test</a>
+    </div>
+</div>
+<br>
+<h2 class="text-center container col-4">Comments </h2>
+<br>
+<div>
+  {{#each comment as |comment|}}
+  <div class=" container col-8">
+        <div class="sig">
+        <p> User: {{comment.user.username}}</p>
+        <p>Date: {{comment.date}}</p>
+        <p>Comment: {{comment.content}}</p>
+        </div>
+  </div>
+  {{/each}}
+</div>
+
+      {{!-- <div class="updatepanel">
+        <div class="updateform" id="{{comment.id}}" style="display: none">
+          <div class="text-center">
+          <h4>Update Post!</h4>
+          <laber for="rating">Rating:</label>
+          <input
+            type="text"
+            id="updatepostsub"
+            name="subject"
+          />
+          <br />
+      
+          <label for="comment"></label>
+          <label for="comment">Description: </label>
+          <textarea
+            id="updatepostdescr"
+            name="comment"
+            rows="7"
+          ></textarea>
+          <br />
+          <br />
+          <button class="inputUpdateFields btn btn-light"> Update </button>
+          <br />
+          <br>
+          <div id="cancelbtn"></div>
+        </div>
+        </div>
+      </div> --}}
