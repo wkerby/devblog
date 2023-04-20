@@ -6,6 +6,9 @@ class User extends Model {
     verifyPassword(inputPass) {
         return bcrypt.compareSync(inputPass,this.password); //to what is this.password referring?
     }
+    getUserName() {
+        return this.username; //retrieves the username for the current record
+    }
 } 
 
 User.init(
@@ -31,7 +34,7 @@ User.init(
     {
         hooks: {
             async beforeCreate(newUser) {
-                newUser.password = await bcrypt.hash(newUser.password, 7);
+                newUser.password = await bcrypt.hash(newUser.password, 10);
                 return newUser;
             },
         },

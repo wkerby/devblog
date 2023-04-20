@@ -48,10 +48,25 @@ router.get("/post/:id", async (req, res) => {
     }
 });
 
+///----------render the login page----------
 router.get("/login", async (req, res) => {
     console.log(`${req.method} method registered.`)
     try {
         res.status(200).render("login")
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+
+    }
+})
+
+
+///----------render the signup page----------
+router.get("/signup", async (req, res) => {
+    console.log(`${req.method} method registered.`)
+    try {
+        res.status(200).render("signup")
     }
     catch (err) {
         console.log(err);

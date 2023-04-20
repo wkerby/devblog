@@ -19,7 +19,11 @@
     <ul class = "nav">
         <li class ="active">
             <a href ="/">Home</a>
-            <a href ="/login"> Login</a>
+            {{#if loggedIn}}
+                <a href ="/api/logout"> Logout</a>
+            {{else}}
+                <a href ="/login"> Login</a>
+            {{/if}}
         </li>
     </ul>
 
@@ -27,4 +31,6 @@
         {{{ body }}} <!--this will render the specific handlebars page based off of the logic in the route --> 
     </main>
 </body>
+<script src="/js/login.js"></script> <!--if this doesn't work, try different src path-->
+<script src="/js/signup.js"></script>
 </html>
