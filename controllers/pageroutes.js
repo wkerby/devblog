@@ -9,7 +9,10 @@ router.get("/", async (req, res) => {
     try {
         const allPosts = await Post.findAll({include:[{model:User}]});//query back all posts that have been created
         const posts = allPosts.map((post) => post.get({plain:true})); //serialize the post data
-        res.status(200).render("allposts", {posts});
+        res.status(200).render("allposts", {
+            loggedIn: req.session.loggedIn,
+            posts: posts
+        });
     }
 
     catch (err) {

@@ -20,7 +20,10 @@
         <li class ="active">
             <a href ="/">Home</a>
             {{#if loggedIn}}
-                <a href ="/api/logout"> Logout</a>
+                <button
+                  type="button"
+                  id="logout"
+                >logout</button>
             {{else}}
                 <a href ="/login"> Login</a>
             {{/if}}
@@ -33,4 +36,5 @@
 </body>
 <script src="/js/login.js"></script> <!--if this doesn't work, try different src path-->
 <script src="/js/signup.js"></script>
+<script src="/js/logout.js"></script>
 </html>
