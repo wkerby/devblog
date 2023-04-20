@@ -4,7 +4,7 @@ loginButton.addEventListener("click", async (e) => {
     e.preventDefault();
     const userName = document.getElementById("name").value.trim(); //make sure to get rid of any extra blank space that the user entered
     const password = document.getElementById("password").value.trim(); //make sure to get rid of any extra blank space that the user entered
-
+    console.log(userName,password);
     await fetch("/api/login", {
         method: "POST",
         headers: {

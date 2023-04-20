@@ -19,7 +19,11 @@
     <ul class = "nav">
         <li class ="active">
             <a href ="/">Home</a>
-            <a href ="/login"> Login</a>
+            {{#if loggedIn}}
+                <a href ="/api/logout"> Logout</a>
+            {{else}}
+                <a href ="/login"> Login</a>
+            {{/if}}
         </li>
     </ul>
 
