@@ -1,4 +1,18 @@
 <div>
+    <h2>Make a new post</h2>
+    <form>
+        <div class ="form-group">
+            <label for="title">Title</label>
+            <textarea class="form-control" style="background-color:rgb(222, 229, 223) ;" id="titleContent" rows="8"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea class="form-control" style="background-color:rgb(222, 229, 223) ;" id="contentContent" rows="8"></textarea>
+        </div>
+      <button type="submit" class="btn btn-primary" id="newReview">Add</button>
+
+    </form>
+
     {{#each serializedUserPosts as |post|}}
         <a href= "/post/{{post.id}}">
             <div class="card" style="width: 18rem;">
@@ -11,6 +25,7 @@
             </div>
         </a>
     {{/each}}
+
 
     
 </div>

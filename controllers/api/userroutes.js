@@ -68,6 +68,23 @@ router.post("/signup", async (req, res) => {
     }
 });
 
+//----------logout of the application----------
+router.delete("/logout", async (req,res) => {
+    console.log(req.session.loggedIn);
+    if (req.session.loggedIn) {
+        req.session.destroy(() => { //end the user session of the user selects the logout a tag
+            res.status(204).end(); 
+        });
+    }
+
+    else {
+        res.status(404).end();
+    }
+
+    console.log(`Logout ${req.method} registered.`)
+
+});
+
 //----------add a comment to a post----------
 router.post("/addcomment", async (req,res) => {
 
@@ -85,23 +102,6 @@ router.post("/addcomment", async (req,res) => {
     }
     
     
-
-});
-
-//----------logout of the application----------
-router.delete("/logout", async (req,res) => {
-    console.log(req.session.loggedIn);
-    if (req.session.loggedIn) {
-        req.session.destroy(() => { //end the user session of the user selects the logout a tag
-            res.status(204).end(); 
-        });
-    }
-
-    else {
-        res.status(404).end();
-    }
-
-    console.log(`Logout ${req.method} registered.`)
 
 });
 
