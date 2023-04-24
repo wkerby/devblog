@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../../models"); //here we will need access to the user model in order to verify username and password
 
-///----------attempt to log in a user from the login page and begin session if credentials are verified----------
+//----------attempt to log in a user from the login page and begin session if credentials are verified----------
 router.post("/login", async (req, res) => {
     console.log(`Login ${req.method} registered.`)
     try {
@@ -27,6 +27,7 @@ router.post("/login", async (req, res) => {
                     req.session.loggedIn = true;
                     console.log("You are now logged in!")
                     req.session.currentUser = findUser.getUserName();
+                    req.session.currentUserId = findUser.getUserId();
                     console.log(req.session.currentUser);
                     res.status(200).json({message: "You are now logged in!"});
 
@@ -54,6 +55,7 @@ router.post("/signup", async (req, res) => {
         req.session.save(() => {
             req.session.loggedIn = true;
             req.session.currentUser = createUser.getUserName();
+            req.session.currentUserId = findUser.getUserId();
             res.status(200).json({message: "You are now logged in!"})
         });
 
@@ -64,9 +66,9 @@ router.post("/signup", async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
-})
+});
 
-
+//----------add a comment to a post----------
 router.post("/addcomment", async (req,res) => {
 
     let currentDate = new Date(); //retrieve a date stamp
@@ -84,8 +86,9 @@ router.post("/addcomment", async (req,res) => {
     
     
 
-})
+});
 
+//----------logout of the application----------
 router.delete("/logout", async (req,res) => {
     console.log(req.session.loggedIn);
     if (req.session.loggedIn) {
@@ -100,11 +103,30 @@ router.delete("/logout", async (req,res) => {
 
     console.log(`Logout ${req.method} registered.`)
 
-})
+});
 
+//----------make a new post from the dashboard view-----------
 router.post("/newpost", async (req,res) => {
+    let currentDate = new Date(); //retrieve a date stamp
+    let today = currentDate.toLocaleString(); //convert it into format that is more readable for end-user
 
+    try {
+
+        const newPost = await Post.create({
+            user_id: req.session.currentUserId,
+            date: today,
+            title: req.body.title,
+            content: req.body.content,
+
+        });
+        res.status(200).json(newPost); //write the new post record to the post table
+    }
+
+    catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
     
-})
+});
 
 module.exports = router;

@@ -9,6 +9,9 @@ class User extends Model {
     getUserName() {
         return this.username; //retrieves the username for the current record
     }
+    getUserId() {
+        return this.id;
+    }
 } 
 
 User.init(
