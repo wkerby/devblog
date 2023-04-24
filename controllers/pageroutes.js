@@ -78,4 +78,45 @@ router.get("/signup", async (req, res) => {
     }
 })
 
+///----------render the user dashboard page----------
+router.get("/dashboard", async (req, res) => {
+    if (req.session.loggedIn) { //verify that the user has logged in or is signed up
+        try {
+            const userPosts = await Post.findAll({
+                where : {
+                    username : req.session.currentUser
+                },
+
+                order: [['date', 'DESC']], //display the most current posts first
+                
+                include:[{model:User}],
+            });
+
+            const serializeUserPosts = userPosts.map((post) => post.get({ plain: true}));
+            const currentUser = req.session.currentUser; //save the current user into a variable so that it can be displayed on the dashboard
+            res.status(200).render("dashboard", {
+                serializeUserPosts,
+                currentUser,
+                loggedIn: req.session.loggedIn,
+            });
+
+        }
+        catch (err) {
+            console.log(err)
+            res.status(500).json(err)
+        }
+
+        }
+    
+    else {
+
+        res.redirect("/login"); //redirect the user to the login page if he/she attempts to click on the dashboard when not logged in
+    }
+    }
+
+
+)
+
+
+
 module.exports = router;

@@ -66,6 +66,7 @@ router.post("/signup", async (req, res) => {
     }
 })
 
+
 router.post("/addcomment", async (req,res) => {
 
     let currentDate = new Date(); //retrieve a date stamp
@@ -83,11 +84,6 @@ router.post("/addcomment", async (req,res) => {
     
     
 
-    // try {
-    //     const newComment = await Comment.create({
-    //         ...req.body
-    //     })
-    // }
 })
 
 router.delete("/logout", async (req,res) => {
@@ -104,6 +100,11 @@ router.delete("/logout", async (req,res) => {
 
     console.log(`Logout ${req.method} registered.`)
 
+})
+
+router.post("/newpost", async (req,res) => {
+
+    
 })
 
 module.exports = router;
