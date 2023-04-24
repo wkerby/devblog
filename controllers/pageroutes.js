@@ -84,7 +84,7 @@ router.get("/dashboard", async (req, res) => {
         try {
             const userPosts = await Post.findAll({
                 where : {
-                    username : req.session.currentUser
+                    user_id : req.session.currentUserId
                 },
 
                 order: [['date', 'DESC']], //display the most current posts first
@@ -92,10 +92,10 @@ router.get("/dashboard", async (req, res) => {
                 include:[{model:User}],
             });
 
-            const serializeUserPosts = userPosts.map((post) => post.get({ plain: true}));
+            const serializedUserPosts = userPosts.map((post) => post.get({ plain: true}));
             const currentUser = req.session.currentUser; //save the current user into a variable so that it can be displayed on the dashboard
             res.status(200).render("dashboard", {
-                serializeUserPosts,
+                serializedUserPosts,
                 currentUser,
                 loggedIn: req.session.loggedIn,
             });

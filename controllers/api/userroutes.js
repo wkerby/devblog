@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../../models"); //here we will need access to the user model in order to verify username and password
+const { User, Post } = require("../../models"); //here we will need access to the user model in order to verify username and password
 
 //----------attempt to log in a user from the login page and begin session if credentials are verified----------
 router.post("/login", async (req, res) => {
