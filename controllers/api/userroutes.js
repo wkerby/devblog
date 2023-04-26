@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Post } = require("../../models"); //here we will need access to the user model in order to verify username and password
+const { User, Post, Comment} = require("../../models"); //here we will need access to the user model in order to verify username and password
 
 //----------attempt to log in a user from the login page and begin session if credentials are verified----------
 router.post("/login", async (req, res) => {
@@ -86,21 +86,29 @@ router.delete("/logout", async (req,res) => {
 });
 
 //----------add a comment to a post----------
-router.post("/addcomment", async (req,res) => {
+router.post("/newcomment", async (req,res) => {
 
     let currentDate = new Date(); //retrieve a date stamp
     let today = currentDate.toLocaleString(); //convert it into format that is more readable for end-user
-    console.log(`Add comment ${req.method} registered.`)
-    console.log(`Today is ${today}`) 
+    console.log(`New comment ${req.method} registered.`)
+    console.log(`Today is ${today}`)
+    const currentUserId = req.session.currentUserId; //this will grab the id of the user who is currently logged in
 
-    if (req.session.loggedIn) { //why won't this work?
-        console.log(`The user is logged in`);
-    }
+    //add a single record to the comment model
+    try {
+        const newComment = await Comment.create({
+            content: req.body.content,
+            post_id: req.body.post_id, //we will take this off of the url
+            user_id: currentUserId,
+            date: today, 
 
-    else {
-        console.log("Not logged in.")
+        });
+        res.status(200).json(newComment);
     }
-    
+    catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
     
 
 });
