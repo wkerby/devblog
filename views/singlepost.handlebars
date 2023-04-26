@@ -21,7 +21,18 @@
   {{/each}}
 
   {{#if loggedIn}}
-  <p>You are logged in!</p>
+    <h2>Add a comment</h2>
+    <form>
+        <div class ="form-group">
+            <label for="title">Title</label>
+            <textarea class="form-control" style="background-color:rgb(222, 229, 223) ;" id="titleContent" rows="8"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea class="form-control" style="background-color:rgb(222, 229, 223) ;" id="contentContent" rows="8"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="newPost">Add</button>
+    </form>
   {{/if}}
 
   <!--if user is logged in, add functionality for leaving a comment and editing his/her own comments-->
