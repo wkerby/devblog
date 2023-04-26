@@ -15,7 +15,7 @@ addCommentButton.addEventListener("click", async (e) => {
     const post_id = urlStrArray[urlStrArray.length - 1] //the post_id will be the last element in this array
     console.log(`The post id is ${post_id}`)
     const content = document.getElementById("commentContent").value.trim();
-    await fetch("api/newcomment", {
+    await fetch("/api/newcomment", {
         method: "POST",
         headers: {
             Accept: "application/json, text/plain, */*", 
