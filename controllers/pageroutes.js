@@ -34,9 +34,11 @@ router.get("/post/:id", async (req, res) => {
         const date = specPost.dataValues.date;
         const title = specPost.dataValues.title;
         const content = specPost.dataValues.content;
+        const loggedIn = req.session.loggedIn
         const specPostUser = await Post.findByPk(specPostId, {include:[{model:User}]});
         const user = specPostUser.user.dataValues.username; //save the user who made the post into a variable and display in the handlebars view
         res.status(200).render("singlepost", {
+            loggedIn,
             title,
             content,
             date,
