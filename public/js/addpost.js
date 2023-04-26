@@ -1,7 +1,7 @@
 const addPostButton = document.getElementById("newPost");
 
 addPostButton.addEventListener("click", async (e) => {
-    e.stopPropagation();
+    e.preventDefault();
     const title = document.getElementById("titleContent").value.trim();
     const content = document.getElementById("contentContent").value.trim();
     await fetch("api/newpost", {

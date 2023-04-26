@@ -97,10 +97,10 @@ router.post("/newcomment", async (req,res) => {
     //add a single record to the comment model
     try {
         const newComment = await Comment.create({
-            content: req.body.content,
             post_id: req.body.post_id, //we will take this off of the url
             user_id: currentUserId,
             date: today, 
+            content: req.body.content,
 
         });
         res.status(200).json(newComment);
