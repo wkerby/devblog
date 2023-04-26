@@ -19,7 +19,7 @@ addButton.addEventListener("click", async (e) => {
     }).then((res) => {
         console.log(res);
         if (res.status == 200) {
-            window.location.href = "/post" //refresh the page with the new post in the user's dashboard if the post is successful
+            window.location.href = `/post/${post_id}`//refresh the page with the new post in the user's dashboard if the post is successful
         }
         
     })
