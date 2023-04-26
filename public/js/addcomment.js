@@ -6,7 +6,7 @@ addButton.addEventListener("click", async (e) => {
     const urlStrArray = currUrl.split("/"); //will create an array of the text content in the url separated by forward slashes
     const post_id = urlStrArray.slice(-1); //the post_id will be the last element in this array
     const content = document.getElementById("commentContent").value.trim();
-    await fetch("api/newpost", {
+    await fetch("api/newcomment", {
         method: "POST",
         headers: {
             Accept: "application/json, text/plain, */*", 
