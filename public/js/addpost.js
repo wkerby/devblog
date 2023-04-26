@@ -1,6 +1,6 @@
-const addButton = document.getElementById("newPost");
+const addPostButton = document.getElementById("newPost");
 
-addButton.addEventListener("click", async (e) => {
+addPostButton.addEventListener("click", async (e) => {
     e.stopPropagation();
     const title = document.getElementById("titleContent").value.trim();
     const content = document.getElementById("contentContent").value.trim();

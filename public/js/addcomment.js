@@ -1,10 +1,10 @@
-const addButton = document.getElementById("newComment");
+const addCommentButton = document.getElementById("newComment");
 
-addButton.addEventListener("click", async (e) => {
+addCommentButton.addEventListener("click", async (e) => {
     e.stopPropagation();
     const currUrl = window.location.href;
     const urlStrArray = currUrl.split("/"); //will create an array of the text content in the url separated by forward slashes
-    const post_id = urlStrArray.slice(-1); //the post_id will be the last element in this array
+    const post_id = urlStrArray[urlStrArray.length - 1] //the post_id will be the last element in this array
     const content = document.getElementById("commentContent").value.trim();
     await fetch("api/newcomment", {
         method: "POST",
