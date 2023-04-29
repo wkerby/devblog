@@ -29,7 +29,7 @@ const sess = { //create a sess object
 app.use(session(sess))
 
 //allow use of handlebars
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
