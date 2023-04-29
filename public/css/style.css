@@ -28,3 +28,8 @@
     padding-bottom: 10px;
     padding-left: 10px;
 }
+
+.updateform {
+    display:none;
+    color: red;
+}

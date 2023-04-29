@@ -137,13 +137,25 @@ router.post("/newpost", async (req,res) => {
     
 });
 
-router.put("/updatepost/:id", async(req,res) => {
-    const updatePost = Post.findOne({
-        where: {
-            post_id: req.body.post_id
-        }
-    })
+router.put("/updatepost", async(req,res) => {
 
-})
+    try {
+        const updatePost = await Post.update({
+            where: {
+                id: req.body.post_id //req.body.post_id will be the req.queryparam
+            },
+        });
+        res.status(200).json(updatePost);
+
+
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+
+
+
+});
 
 module.exports = router;
