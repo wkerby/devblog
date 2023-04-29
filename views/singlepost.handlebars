@@ -5,6 +5,11 @@
         <p class="card-text">{{date}}</p>
         <p class="card-text">{{content}}</p>
     </div>
+    {{#if user == currentUser}}
+    <button type="submit" class="btn btn-primary" id="newPost">Update</button>
+    {{/if}}
+
+
 </div>
 <br>
 <h2 class="text-center container col-4">Comments </h2>

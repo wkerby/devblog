@@ -137,4 +137,13 @@ router.post("/newpost", async (req,res) => {
     
 });
 
+router.put("/updatepost/:id", async(req,res) => {
+    const updatePost = Post.findOne({
+        where: {
+            post_id: req.body.post_id
+        }
+    })
+
+})
+
 module.exports = router;
