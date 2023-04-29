@@ -138,13 +138,23 @@ router.post("/newpost", async (req,res) => {
 });
 
 router.put("/updatepost", async(req,res) => {
+    console.log(req.body);
 
     try {
-        const updatePost = await Post.update({
-            where: {
-                id: req.body.post_id //req.body.post_id will be the req.queryparam
+        const updatePost = await Post.update(
+            {
+                title: req.body.title,
+                content: req.body.content,
+                date: req.body.date,
             },
-        });
+
+            {
+                where: {
+                    id: req.body.post_id //req.body.post_id will be the req.queryparam
+                },
+
+            }
+        );
         res.status(200).json(updatePost);
 
 

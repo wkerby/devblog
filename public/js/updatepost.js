@@ -17,7 +17,7 @@ finalUpdatePostButton.addEventListener("click", async (e) => {
     const content = newContent.value.trim();
     const currUrl = window.location.href;
     const urlStrArray = currUrl.split("/"); //will create an array of the text content in the url separated by forward slashes
-    const post_id = urlStrArray[urlStrArray.length - 1]
+    const post_id = urlStrArray[urlStrArray.length - 1];
     let currentDate = new Date(); //retrieve a date stamp
     let today = currentDate.toLocaleString(); //convert it into format that is more readable for end-user
     await fetch("/api/updatepost", {
