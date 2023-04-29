@@ -1,5 +1,5 @@
 const initUpdatePostButton = document.getElementById("updatePost");
-const finalUpdatePostButton = document.getElementById("finalUpdateBtn")
+const finalUpdatePostButton = document.getElementById("finalUpdateBtn");
 const updateFormEls = document.getElementByClassName("updateform");
 
 // initUpdatePostButton.addEventListener("click", async (e) => {
@@ -15,7 +15,9 @@ finalUpdatePostButton.addEventListener("click", async (e) => {
     const currUrl = window.location.href;
     const urlStrArray = currUrl.split("/"); //will create an array of the text content in the url separated by forward slashes
     const post_id = urlStrArray[urlStrArray.length - 1]
-    await fetch("api/updatepost", {
+    let currentDate = new Date(); //retrieve a date stamp
+    let today = currentDate.toLocaleString(); //convert it into format that is more readable for end-user
+    await fetch("/api/updatepost", {
         method: "PUT",
         headers: {
             Accept: "application/json, text/plain, */*", 
@@ -25,11 +27,12 @@ finalUpdatePostButton.addEventListener("click", async (e) => {
             title: title,
             content: content,
             post_id: post_id, 
+            date: today,
           }),
     }).then((res) => {
         console.log(res);
         if (res.status == 200) {
-            window.location.href = "/dashboard" //refresh the page with the new post in the user's dashboard if the post is successful
+            window.location.href = `/singlepost/${post_id}` //refresh the page with the new post in the user's dashboard if the post is successful
         }
         
     })
