@@ -6,7 +6,33 @@
         <p class="card-text">{{content}}</p>
     </div>
     {{#if (ifEquals user currentUser)}}
+    <br/>
     <button type="submit" class="btn btn-primary" id="newPost">Update</button>
+    <div class="updateform">
+      <label>Update Post</label>
+      <br />
+      <input
+        class="input col-8"
+        type="text"
+        id="postupdatetitle"
+        name="title"
+      />
+      <br />
+      <br />
+      <label for="post"></label>
+      <textarea
+        id="postupdatecontent"
+        name="content"
+        class="col-9"
+        rows="10"
+      ></textarea>
+      <br />
+      <br />
+      <button class="inputUpdateFields btn btn-light" id="finalUpdateBtn"> Update </button>
+      <br />
+      <br />
+      <div id="cancelbtn"></div>
+    </div>
     {{else}}
     {{/if}}
 
