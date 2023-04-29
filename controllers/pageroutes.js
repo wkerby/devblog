@@ -5,7 +5,7 @@ const path = require("path");
 ///----------render all posts on the home page----------
 
 router.get("/", async (req, res) => {
-    console.log(`Registering ${req.method} route`);
+    console.log(`${req.method} request logged`);
     try {
         const allPosts = await Post.findAll({include:[{model:User}]});//query back all posts that have been created
         const posts = allPosts.map((post) => post.get({plain:true})); //serialize the post data
@@ -57,7 +57,7 @@ router.get("/post/:id", async (req, res) => {
 
 ///----------render the login page----------
 router.get("/login", async (req, res) => {
-    console.log(`${req.method} method registered.`)
+    console.log(`${req.method} request logged.`)
     try {
         res.status(200).render("login")
     }
@@ -71,7 +71,7 @@ router.get("/login", async (req, res) => {
 
 ///----------render the signup page----------
 router.get("/signup", async (req, res) => {
-    console.log(`${req.method} method registered.`)
+    console.log(`${req.method} request logged.`)
     try {
         res.status(200).render("signup")
     }

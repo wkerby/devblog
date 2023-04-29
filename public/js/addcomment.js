@@ -1,19 +1,9 @@
 const addCommentButton = document.getElementById("newComment");
-if (addCommentButton) {
-    console.log("Button exists!")
-
-}
-
-else {
-    console.log("Button does not exist.")
-}
-
 addCommentButton.addEventListener("click", async (e) => {
     e.preventDefault();
     const currUrl = window.location.href;
     const urlStrArray = currUrl.split("/"); //will create an array of the text content in the url separated by forward slashes
     const post_id = urlStrArray[urlStrArray.length - 1] //the post_id will be the last element in this array
-    console.log(`The post id is ${post_id}`)
     const content = document.getElementById("commentContent").value.trim();
     await fetch("/api/newcomment", {
         method: "POST",
