@@ -1,7 +1,8 @@
-const initUpdatePostButton = document.getElementById("updatePost");
+// const initUpdatePostButton = document.getElementById("updatePost");
 const finalUpdatePostButton = document.getElementById("finalUpdateBtn");
-const updateFormEls = document.getElementByClassName("updateform");
-
+// const updateFormEls = document.getElementByClassName("updateform");
+const newTitle = document.getElementById("postupdatetitle");
+const newContent = document.getElementById("postupdatecontent");
 // initUpdatePostButton.addEventListener("click", async (e) => {
 //     e.preventDefault();
 //     for (i = 0; i< updateFormEls.length; i++) {
@@ -12,6 +13,8 @@ const updateFormEls = document.getElementByClassName("updateform");
 
 finalUpdatePostButton.addEventListener("click", async (e) => {
     e.preventDefault();
+    const title = newTitle.value.trim();
+    const content = newContent.value.trim();
     const currUrl = window.location.href;
     const urlStrArray = currUrl.split("/"); //will create an array of the text content in the url separated by forward slashes
     const post_id = urlStrArray[urlStrArray.length - 1]
