@@ -1,4 +1,6 @@
-{
+{ "scripts": {
+  "seed": "node seeds/index.js"
+},
   "dependencies": {
     "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.5",
