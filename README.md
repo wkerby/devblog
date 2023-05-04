@@ -10,8 +10,6 @@ https://boiling-wave-62937.herokuapp.com/
 
 And below is an image of the application's landing page:
 
-
-
 To use interact with the application, navigate to the "Home" page to view all posts to the dev blog 
 
 If you wish to create posts of your own and add comments to previously-existing posts, you'll need to log in. To do so, simply select "Login" from the navbar, from which you will find a link to sign up if you do not already have an account created.
