@@ -10,26 +10,32 @@ As part of this weekly challenge, we were asked to create a blog with which deve
 - Option to comment on other blog users' posts as well as your own
 
 
-I leveraged:
+I leveraged ,among other technologies:
  - express package to handle server set-up, routes for my application pages, and routes for blog data
  - express-session package to save sessions and specific user data
-
-- HTML5 to organize and structure the webpage
-- CSS3 to apply styles and responsiveness to the webpage
+ - sequelize for to establish and model relational database
+ - built-in JavaScript Date() object for time stamping
+ - bcrypt package to secure user password data
 
 ## Usage
 
-Here you will find a link to the deployed webpage:
+Below you will find a link to the deployed application:
 
-*https://wkerby.github.io/my-webpage/
+https://boiling-wave-62937.herokuapp.com/
+
+To use interact with the application, navigate to the "Home" page to view all posts to the dev blog 
+
+If you wish to create posts of your own and add comments to previously-existing posts, you'll need to log in. To do so, simply select "Login" from the navbar, from which you will find a link to sign up if you do not already have an account created.
+
+Once logged in, navigate to the "Dashboard" view to add a new post. You will not see any posts in your dashboard view if you have not yet created a post. 
+
+To comment on an existing post, you click on it from either the "Dashboard" view or the "Home" view.
+
 
 ## Credits
 
-The portfolio website was completed in conjunction with the software development boot camp provided by the Georgia Tech professional development program.
+I created this blog in conjunction with the software development boot camp provided by the Georgia Tech professional development program.
 
-Some useful pages I used to help me through the project inlcude:
-
-*https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/
 
 ## Features
 
