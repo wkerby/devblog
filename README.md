@@ -8,6 +8,10 @@ Below you will find a link to the deployed application:
 
 https://boiling-wave-62937.herokuapp.com/
 
+And below is an image of the application's landing page:
+
+
+
 To use interact with the application, navigate to the "Home" page to view all posts to the dev blog 
 
 If you wish to create posts of your own and add comments to previously-existing posts, you'll need to log in. To do so, simply select "Login" from the navbar, from which you will find a link to sign up if you do not already have an account created.
@@ -34,7 +38,7 @@ The functionality of the development blog includes but is not limited to:
 - Option to comment on other blog users' posts as well as your own
 
 
-I leveraged ,among other technologies:
+I leveraged, among other technologies:
  - express package to handle server set-up, routes for my application pages, and routes for blog data
  - express-session package to save sessions and specific user data
  - sequelize for to establish and model relational database

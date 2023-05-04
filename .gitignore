@@ -3,3 +3,6 @@ node_modules/
 
 # enviornmentvariables
 .env 
+
+#assets
+assets/
