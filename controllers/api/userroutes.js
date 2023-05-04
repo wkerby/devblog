@@ -55,7 +55,7 @@ router.post("/signup", async (req, res) => {
         req.session.save(() => {
             req.session.loggedIn = true;
             req.session.currentUser = createUser.getUserName();
-            req.session.currentUserId = findUser.getUserId();
+            req.session.currentUserId = createUser.getUserId();
             res.status(200).json({message: "You are now logged in!"})
         });
 
